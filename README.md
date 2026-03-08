@@ -18,7 +18,7 @@ A Flutter Android app for monitoring and controlling Growatt solar inverters rem
 
 ## Screenshots
 
-*Coming soon*
+![Growatt Control Dashboard](dashboard.png)
 
 ## Prerequisites
 
