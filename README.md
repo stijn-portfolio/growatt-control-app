@@ -28,14 +28,14 @@ A Flutter Android app for monitoring and controlling Growatt solar inverters rem
 
 ## Installation
 
-### Option 1: Download APK (Recommended)
+### Option 1: Download APK (recommended)
 1. Download `app-release.apk` from the releases page
 2. Transfer to your Android device
 3. Open the APK file on your device
 4. Allow installation from unknown sources if prompted
 5. Install the app
 
-### Option 2: Build from Source
+### Option 2: Build from source
 ```bash
 # Clone the repository
 git clone https://github.com/YOUR_USERNAME/growatt_control_app.git
@@ -52,7 +52,7 @@ flutter build apk --release
 
 ## Configuration
 
-### 1. Get Your API Token
+### 1. Get your API token
 
 1. Go to [Growatt OSS Portal](https://oss.growatt.com)
 2. Log in or create an account
@@ -60,7 +60,7 @@ flutter build apk --release
 4. Generate a new API token (32-character code)
 5. Save this token - you'll need it in the app
 
-### 2. Configure the App
+### 2. Configure the app
 
 1. Open the Growatt Control App
 2. Tap the settings icon (⚙️) in the top right
@@ -75,7 +75,7 @@ flutter build apk --release
 
 ## Usage
 
-### Monitoring Inverters
+### Monitoring inverters
 
 - **Status Badge**: Shows current state (Waiting/Normal/Fault)
 - **Current Power**: Real-time power output in Watts
@@ -83,21 +83,21 @@ flutter build apk --release
 - **Temperature**: Inverter temperature (if available)
 - **Last Updated**: Time since last data refresh
 
-### Controlling Inverters
+### Controlling inverters
 
 1. Locate the Power Control switch on a device card
 2. Toggle the switch to turn the inverter on/off
 3. Wait for confirmation (green/red snackbar)
 4. Note: There's a 5-second cooldown between toggle operations
 
-### Refreshing Data
+### Refreshing data
 
 - **Pull to refresh**: Drag down on the device list
 - **Floating button**: Tap the refresh button (bottom right)
 - **Auto-refresh**: Data older than 5 minutes is automatically refreshed
 - Note: There's a 5-second cooldown between manual refreshes
 
-## Technology Stack
+## Technology stack
 
 - **Framework**: Flutter 3.x
 - **Language**: Dart
@@ -106,7 +106,7 @@ flutter build apk --release
 - **Platform**: Android (iOS support possible)
 - **API**: Growatt OpenAPI v4
 
-## API Rate Limits
+## API rate limits
 
 The app automatically enforces these limits:
 
@@ -114,7 +114,7 @@ The app automatically enforces these limits:
 - **Device Control** (on/off): Max once every 5 seconds
 - **Device Data**: Cached for 5 minutes per device
 
-## Known Limitations
+## Known limitations
 
 - Noah-type devices do not support power control (API limitation)
 - Device data is cached for 5 minutes to respect API rate limits
@@ -149,7 +149,7 @@ See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for:
 - Building from source
 - Contributing guidelines
 
-## API Reference
+## API reference
 
 See [docs/API_REFERENCE.md](docs/API_REFERENCE.md) for:
 - API endpoints
