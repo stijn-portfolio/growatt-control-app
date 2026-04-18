@@ -1,13 +1,13 @@
-# Growatt Control App - Development Documentation
+# Growatt Control App - development documentation
 
-## Project Goal
+## Project goal
 
 A simple Android app (Flutter) that allows you to:
 - View the status of your Growatt inverters
 - Turn inverters on and off
 - No server needed - app connects directly to Growatt API
 
-## Technology Stack
+## Technology stack
 
 - **Framework**: Flutter (Dart)
 - **Platform**: Android (iOS possible in future)
@@ -30,14 +30,14 @@ Inverter data
 
 ---
 
-## Development Roadmap
+## Development roadmap
 
-### PHASE 1: Setup ✅
+### PHASE 1: setup ✅
 - [x] 1. Install Flutter SDK and set up development environment
 - [x] 2. Create new Flutter project: `growatt_control_app`
 - [x] 3. Add dependencies (http, provider, shared_preferences)
 
-### PHASE 2: Project Structure ✅
+### PHASE 2: project structure ✅
 - [x] 4. Create folder structure:
   - `lib/models/` - Data models
   - `lib/services/` - API service
@@ -45,7 +45,7 @@ Inverter data
   - `lib/screens/` - Screens
   - `lib/widgets/` - Reusable components
 
-### PHASE 3: Data & API Layer ✅
+### PHASE 3: data & API layer ✅
 - [x] 5. Create models (Device, ApiResponse)
 - [x] 6. Implement ApiService class:
   - Device List endpoint
@@ -53,7 +53,7 @@ Inverter data
   - setOnOrOff endpoint
   - Error handling
 
-### PHASE 4: UI Screens ✅
+### PHASE 4: UI screens ✅
 - [x] 7. Settings screen (token + region configuration)
 - [x] 8. Devices list screen (main screen)
   - AppBar with refresh and settings
@@ -61,20 +61,20 @@ Inverter data
   - Pull-to-refresh
   - Loading states
 
-### PHASE 5: Device Card Component ✅
+### PHASE 5: device card component ✅
 - [x] 9. Create DeviceCard widget:
   - Device info (name, SN, type)
   - Status indicator (online/offline)
   - Power status
   - On/Off switch
 
-### PHASE 6: State Management ✅
+### PHASE 6: state management ✅
 - [x] 10. Provider setup:
   - Config provider (token, region)
   - Devices provider
   - Loading/error states
 
-### PHASE 7: Polish & Bug Fixes ✅
+### PHASE 7: polish & bug fixes ✅
 - [x] 11. Rate limiting (5 sec cooldown)
 - [x] 12. Error messages (SnackBars)
 - [x] 13. Fix status colors (Waiting=orange, Normal=green, Fault=red)
@@ -88,14 +88,14 @@ Inverter data
 
 ---
 
-## Current Status
+## Current status
 
 **Phase**: Implementation complete - Ready for testing
 **Last worked**: 2025-11-11
 **Next step**: Build APK and test on Android device
 **Project location**: `C:\Dev\growatt_control_app`
 
-### Completed Tasks
+### Completed tasks
 
 - Technology choice made (Flutter)
 - Roadmap created
@@ -124,7 +124,7 @@ Inverter data
 
 ---
 
-## Design Decisions & Insights
+## Design decisions & insights
 
 ### Decision 1: Flutter over React Native
 **Date**: 2025-11-10
@@ -135,7 +135,7 @@ Inverter data
 - Simpler for this use case
 - Single codebase for Android + iOS
 
-### Decision 2: No custom server
+### Decision 2: no custom server
 **Date**: 2025-11-10
 **Choice**: Direct connection to Growatt API
 **Reason**:
@@ -143,7 +143,7 @@ Inverter data
 - Not needed - app can communicate directly with Growatt API
 - Token stored securely in shared_preferences
 
-### Decision 3: Sentinel value pattern for copyWith()
+### Decision 3: sentinel value pattern for copyWith()
 **Date**: 2025-11-11
 **Choice**: Use `_keep` sentinel value for nullable parameters
 **Reason**:
@@ -151,7 +151,7 @@ Inverter data
 - Without this, `copyWith(statusText: null)` would keep old value instead of updating
 - Sentinel pattern allows proper null updates while maintaining backwards compatibility
 
-### Insight 1: Rate Limiting
+### Insight 1: rate limiting
 **Date**: 2025-11-10
 **Finding**: Growatt API has rate limits
 - Device list: max every 5 seconds
@@ -164,17 +164,17 @@ Inverter data
 **Finding**: Noah-type devices do NOT support power control
 **Action**: Hide on/off switch for Noah devices
 
-### Insight 3: Different device types
+### Insight 3: different device types
 **Date**: 2025-11-10
 **Finding**: Different device types (inv, storage, sph, spa, min, max, wit, sph-s, noah)
 **Action**: Device type must be sent with API calls
 
-### Insight 4: Status codes vs status text
+### Insight 4: status codes vs status text
 **Date**: 2025-11-11
 **Finding**: `queryDeviceList` doesn't return status field - need `queryLastData`
 **Action**: Fetch detailed data for each device with smart caching (5-minute cache)
 
-### Insight 5: Status interpretation
+### Insight 5: status interpretation
 **Date**: 2025-11-11
 **Finding**: Status 0 = "Waiting" (not offline!), Status 1 = "Normal", Status 3 = "Fault"
 **Action**:
@@ -189,25 +189,25 @@ Inverter data
 
 ---
 
-## API Information (Quick Reference)
+## API information (Quick reference)
 
 ### Authentication
 - Token: 32-character verification code
 - Token in HTTP header for each call
 - User enters token via Settings screen
 
-### Base URLs
+### Base uRLs
 - China: `https://openapi-cn.growatt.com`
 - International: `https://openapi.growatt.com`
 - North America: `https://openapi-us.growatt.com`
 - Australia/NZ: `http://openapi-au.growatt.com`
 
-### Key Endpoints
+### Key endpoints
 1. `/v4/new-api/queryDeviceList` - List of devices
 2. `/v4/new-api/queryLastData` - Device status and telemetry
 3. `/v4/new-api/setOnOrOff` - Turn on/off
 
-### Error Codes
+### Error codes
 - `0` - Success
 - `2` - Invalid token
 - `4` - Device not found
@@ -229,7 +229,7 @@ dependencies:
 
 ---
 
-## App Structure
+## App structure
 
 ```
 C:\Dev\growatt_control_app\
@@ -258,9 +258,9 @@ C:\Dev\growatt_control_app\
 
 ---
 
-## Building & Testing
+## Building & testing
 
-### Development Mode (Testing)
+### Development mode (Testing)
 ```bash
 cd C:\Dev\growatt_control_app
 flutter run
@@ -279,7 +279,7 @@ APK location: `build\app\outputs\flutter-apk\app-release.apk`
 3. Allow installation from unknown sources (if asked)
 4. Install the app
 
-### First Use
+### First use
 1. Open the app
 2. Tap Settings
 3. Enter your Growatt API token (32 characters)
@@ -289,29 +289,29 @@ APK location: `build\app\outputs\flutter-apk\app-release.apk`
 
 ---
 
-## Troubleshooting Development Issues
+## Troubleshooting development issues
 
-### Issue: CORS errors in Flutter Web
+### Issue: CORS errors in Flutter web
 **Solution**: App only works on Android/iOS, not web (Growatt API doesn't allow CORS)
 
-### Issue: Slow performance on network drive
+### Issue: slow performance on network drive
 **Solution**: Moved project to local drive (C:\Dev) for faster builds
 
-### Issue: Devices showing offline when they're not
+### Issue: devices showing offline when they're not
 **Solution**: `queryDeviceList` doesn't include status - need to call `queryLastData` per device
 
-### Issue: Switch disabled for Waiting devices
+### Issue: switch disabled for waiting devices
 **Solution**: Changed logic - switch enabled for Waiting (can turn on), disabled for Fault only
 
 ### Issue: "Last updated" timestamp static
 **Solution**: Added timer that calls `notifyListeners()` every 30 seconds
 
-### Issue: Device shows "Unknown" status
+### Issue: device shows "Unknown" status
 **Solution**: Fixed `copyWith()` bug with sentinel value pattern
 
 ---
 
-## Future Improvements
+## Future improvements
 
 - [ ] Historical data graphs
 - [ ] Push notifications for status changes

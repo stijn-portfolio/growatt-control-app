@@ -42,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Temperature (°C)
   - Last update time
 
-### Technical Details
+### Technical details
 - Flutter 3.x framework
 - Provider state management
 - HTTP client for API communication
@@ -58,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Switch behavior: enabled for Waiting state, disabled only for Fault state
 - Live timestamp updates without per-card timers
 
-### Known Limitations
+### Known limitations
 - Noah-type devices do not support power control (API limitation)
 - No support for changing advanced inverter parameters
 - Historical data not available yet
@@ -66,7 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## Version History
+## Version history
 
 ### [1.0.0] - 2025-11-11
 First stable release with core functionality.

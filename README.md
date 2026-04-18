@@ -28,14 +28,14 @@ A Flutter Android app for monitoring and controlling Growatt solar inverters rem
 
 ## Installation
 
-### Option 1: Download APK (recommended)
+### Option 1: download APK (recommended)
 1. Download `app-release.apk` from the releases page
 2. Transfer to your Android device
 3. Open the APK file on your device
 4. Allow installation from unknown sources if prompted
 5. Install the app
 
-### Option 2: Build from source
+### Option 2: build from source
 ```bash
 # Clone the repository
 git clone https://github.com/YOUR_USERNAME/growatt_control_app.git
@@ -123,7 +123,7 @@ The app automatically enforces these limits:
 
 ## Troubleshooting
 
-### "No Configuration Found"
+### "No configuration found"
 - Ensure you've entered a valid API token in Settings
 - Check that you selected the correct region
 
@@ -132,7 +132,7 @@ The app automatically enforces these limits:
 - Check that your OSS account has devices registered
 - Ensure your API token hasn't expired
 
-### "Device shows Unknown status"
+### "Device shows unknown status"
 - Try manually refreshing (wait 5+ minutes if recently refreshed)
 - Restart the app
 - Check if device is online in Growatt web portal

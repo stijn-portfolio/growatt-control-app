@@ -1,12 +1,12 @@
-# Growatt API Reference
+# Growatt API reference
 
 ## Overview
 
 This document provides technical details for working with the Growatt OpenAPI v4.
 
-## API Configuration
+## API configuration
 
-### Base URLs by Region
+### Base uRLs by region
 - **China**: `https://openapi-cn.growatt.com`
 - **International**: `https://openapi.growatt.com`
 - **North America**: `https://openapi-us.growatt.com`
@@ -19,7 +19,7 @@ token: YOUR_32_CHARACTER_TOKEN_HERE
 Content-Type: application/x-www-form-urlencoded
 ```
 
-### Getting an API Token
+### Getting an API token
 1. Go to [Growatt OSS Portal](https://oss.growatt.com)
 2. Create an account or log in
 3. Configure your installer account
@@ -28,9 +28,9 @@ Content-Type: application/x-www-form-urlencoded
 
 ---
 
-## API Endpoints
+## API endpoints
 
-### 1. Get Device List ✅
+### 1. Get device list ✅
 
 **Endpoint**: `/v4/new-api/queryDeviceList`
 **Method**: POST
@@ -69,7 +69,7 @@ curl -X POST "https://openapi.growatt.com/v4/new-api/queryDeviceList" \
 
 ---
 
-### 2. Get Device Status & Data ✅
+### 2. Get device status & data ✅
 
 **Endpoint**: `/v4/new-api/queryLastData`
 **Method**: POST
@@ -123,7 +123,7 @@ curl -X POST "https://openapi.growatt.com/v4/new-api/queryLastData" \
 
 ---
 
-### 3. Turn Device On ✅
+### 3. Turn device on ✅
 
 **Endpoint**: `/v4/new-api/setOnOrOff`
 **Method**: POST
@@ -150,7 +150,7 @@ curl -X POST "https://openapi.growatt.com/v4/new-api/setOnOrOff" \
 
 ---
 
-### 4. Turn Device Off ✅
+### 4. Turn device off ✅
 
 **Endpoint**: `/v4/new-api/setOnOrOff`
 **Method**: POST
@@ -186,7 +186,7 @@ curl -X POST "https://openapi.growatt.com/v4/new-api/setOnOrOff" \
 
 ---
 
-## Error Codes
+## Error codes
 
 | Code | Meaning | Action |
 |------|---------|--------|
@@ -200,7 +200,7 @@ curl -X POST "https://openapi.growatt.com/v4/new-api/setOnOrOff" \
 
 ---
 
-## Rate Limits Summary
+## Rate limits summary
 
 | Endpoint | Limit | Cache Strategy |
 |----------|-------|----------------|
@@ -210,7 +210,7 @@ curl -X POST "https://openapi.growatt.com/v4/new-api/setOnOrOff" \
 
 ---
 
-## Device Types
+## Device types
 
 The API supports multiple device types:
 - `inv` - Standard inverters
@@ -227,7 +227,7 @@ The API supports multiple device types:
 
 ---
 
-## Device Status Codes
+## Device status codes
 
 | Status | Text | Meaning | Color |
 |--------|------|---------|-------|
@@ -237,36 +237,36 @@ The API supports multiple device types:
 
 ---
 
-## Best Practices
+## Best practices
 
-### 1. Respect Rate Limits
+### 1. Respect rate limits
 - Implement cooldown timers in your UI
 - Cache data when possible
 - Show countdown to users
 
-### 2. Error Handling
+### 2. Error handling
 - Always check response `code` field
 - Provide user-friendly error messages
 - Implement retry logic for timeouts
 
-### 3. Device Status
+### 3. Device status
 - Call `queryDeviceList` first to get device list
 - Then call `queryLastData` for each device
 - Cache `queryLastData` results for 5 minutes
 
-### 4. Power Control
+### 4. Power control
 - Verify device type supports control (no Noah devices)
 - Handle timeouts gracefully (especially at night)
 - Provide feedback to users (success/failure messages)
 
-### 5. Token Security
+### 5. Token security
 - Never hardcode tokens in your app
 - Store tokens securely (e.g., secure storage)
 - Allow users to input their own token via settings
 
 ---
 
-## Example Flutter Implementation
+## Example Flutter implementation
 
 ```dart
 Future<Map<String, dynamic>> getDeviceData(String deviceSn) async {
@@ -321,7 +321,7 @@ Future<Map<String, dynamic>> getDeviceData(String deviceSn) async {
 
 ---
 
-## Additional Resources
+## Additional resources
 
 - **OSS Portal**: https://oss.growatt.com/index
 - **API Version**: v4 (new-api)
